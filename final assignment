@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//print grind function
+void printGrid(char printedArray[10][10]);
+
+//check function
+int check(int row, int col);
+//flag function
+
+//checkWin function
+
+//global variables to be used throughout the entire code
+
+int rowSelect;
+int columnSelect;
+char command;
+int main() {
+
+    //the two arrays that will be mirrored against one another
+   int hiddenArray[10][10];
+    char printedArray[10][10]= {"**********","**********","**********","**********","**********",
+                                "**********","**********","**********","**********","**********"};
+
+    //the rand function
+    srand(2);
+
+    int mines=0;
+    int rowMine;
+    int columnMine;
+
+    //while loop to randomize the mines within the hidden array
+//    while(mines<11){
+//
+//        rowMine= rand() % 10;
+//        columnMine=rand() % 10;
+//        hiddenArray[rowMine][columnMine]=77; //sets the value at that index equal to the ASCII code for M
+//        mines++;
+//    }
+
+    //loop chain to insert and check for doubled up mines
+    for(int i=0; i<11; i++){
+        rowMine= rand() % 10;
+        columnMine= rand() % 10;
+        hiddenArray[rowMine][columnMine]=77;
+        if(hiddenArray[rowMine][columnMine]!=77){
+            hiddenArray[rowMine][columnMine]=77;
+        }else i--;
+    }
+
+    printGrid(printedArray);
+}
+//functions
+
+//this function will print the grid to screen
+void printGrid(char printedArray[10][10]) {
+    for (int i = 0; i < 10; i++) {
+        printf("%c %c %c %c %c %c %c %c %c %c\n", printedArray[i][0], printedArray[i][2], printedArray[i][3],
+                                                  printedArray[i][3],printedArray[i][4], printedArray[i][5], printedArray[i][6], printedArray[i][7],
+                                                  printedArray[i][8], printedArray[i][9]);
+    }
+    printf("Enter 'c' for check cell, 'f' for flag cell\n");
+    printf("Enter command & cell row col:\n");
+    scanf("%c %d %d",&command,&rowSelect,&columnSelect);
+}
+
+//check function that will be used by the user
+int check(int row, int col){
+    for (int i=0; i<10; i++){
+        for(int j=0; j<10; j++){
+            
+        }
+    }
+}
